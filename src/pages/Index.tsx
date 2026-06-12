@@ -4,12 +4,12 @@ import Icon from "@/components/ui/icon";
 const HERO_BG = "https://cdn.poehali.dev/projects/ead7bd32-5df8-4649-aad8-a70cc0c0aac4/files/9b10a2a4-831e-44cb-ab72-c933d5b7e822.jpg";
 
 const SCHEDULE = [
-  { day: "Понедельник", time: "21:00", game: "Dota 2", type: "ranked", live: false },
-  { day: "Вторник", time: "21:00", game: "Dota 2", type: "ranked", live: false },
-  { day: "Среда", time: "21:00", game: "Dota 2", type: "ranked", live: false },
-  { day: "Четверг", time: "21:00", game: "Dota 2", type: "ranked", live: false },
-  { day: "Пятница", time: "21:00", game: "Dota 2", type: "ranked", live: true },
-  { day: "Суббота", time: "21:00", game: "Dota 2", type: "ranked", live: false },
+  { day: "Понедельник", time: "21:00", game: "Общение", type: "чат", live: false },
+  { day: "Вторник", time: "21:00", game: "Euro Truck Simulator 2", type: "симулятор", live: false },
+  { day: "Среда", time: "21:00", game: "Общение", type: "чат", live: false },
+  { day: "Четверг", time: "21:00", game: "AMAZING RP", type: "roleplay", live: false },
+  { day: "Пятница", time: "21:00", game: "Общение", type: "чат", live: true },
+  { day: "Суббота", time: "21:00", game: "Counter-Strike 2", type: "шутер", live: false },
   { day: "Воскресенье", time: "—", game: "—", type: "выходной", live: false },
 ];
 
