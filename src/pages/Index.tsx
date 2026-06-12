@@ -190,7 +190,7 @@ export default function Index() {
           </h1>
 
           <p className="text-lg md:text-xl text-white/50 tracking-widest font-light mb-10 animate-fade-in-up delay-200">
-            DOTA 2 · LIVE GAMING · CONTENT CREATOR
+            LIVE GAMING · СТРИМЫ · CONTENT CREATOR
           </p>
 
           <div className="flex flex-wrap gap-4 justify-center animate-fade-in-up delay-400">
@@ -239,21 +239,21 @@ export default function Index() {
             <div>
               <p className="text-xs font-display tracking-[0.3em] text-[var(--neon-purple)] mb-4 uppercase">О стримере</p>
               <h2 className="font-display text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
-                Dota 2 игрок<br />
+                Стример<br />
                 <span className="gradient-text">с 2013 года</span>
               </h2>
               <p className="text-white/60 leading-relaxed mb-6">
-                Привет! Я стримлю Dota 2 уже больше 10 лет. Начинал как простой игрок, а сейчас собрал сообщество настоящих ценителей игры. Каждый стрим — это не просто геймплей, это атмосфера, анализ и общение с лучшими зрителями.
+                Привет! Стримлю уже больше 10 лет. Начинал как простой игрок, а сейчас собрал сообщество настоящих ценителей игр. Каждый стрим — это не просто геймплей, это атмосфера, живое общение и отличное настроение.
               </p>
               <p className="text-white/60 leading-relaxed mb-8">
-                Моё максимальное звание — <span className="text-[var(--neon-cyan)] font-semibold">Divine 5</span>. Стримлю ranked-игры, турниры и стримы с подписчиками — заходи, будем играть вместе!
+                В эфире — <span className="text-[var(--neon-cyan)] font-semibold">Euro Truck Simulator 2, AMAZING RP, Counter-Strike 2</span> и много живого общения с подписчиками. Заходи, будем вместе!
               </p>
 
               <div className="grid grid-cols-3 gap-4">
                 {[
-                  { value: "10+", label: "лет в Dota" },
+                  { value: "10+", label: "лет стримов" },
                   { value: "50К+", label: "подписчиков" },
-                  { value: "Divine 5", label: "рейтинг" },
+                  { value: "6 дней", label: "в неделю" },
                 ].map(stat => (
                   <div key={stat.label} className="glass neon-border rounded-xl p-4 text-center">
                     <div className="font-display text-2xl font-bold gradient-text">{stat.value}</div>
