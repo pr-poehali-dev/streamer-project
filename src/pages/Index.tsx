@@ -393,56 +393,27 @@ export default function Index() {
               </div>
             </div>
 
-            <div className="glass neon-border rounded-2xl p-8">
-              <h3 className="font-display text-2xl font-bold text-white mb-6">Сумма доната</h3>
+            <div className="glass neon-border rounded-2xl p-8 flex flex-col items-center text-center">
+              <div className="text-6xl mb-6">💜</div>
+              <h3 className="font-display text-2xl font-bold text-white mb-3">DonationAlerts</h3>
+              <p className="text-white/50 text-sm leading-relaxed mb-8">
+                Нажми кнопку ниже — попадёшь на страницу доната. Там можно выбрать сумму и оставить сообщение, которое я зачитаю в прямом эфире!
+              </p>
 
-              <div className="grid grid-cols-3 gap-3 mb-6">
-                {[50, 100, 200, 500, 1000, 2000].map(amount => (
-                  <button
-                    key={amount}
-                    onClick={() => setDonateAmount(amount)}
-                    className={`py-2.5 rounded-xl text-sm font-display font-semibold tracking-wide transition-all duration-200
-                      ${donateAmount === amount
-                        ? "bg-purple-600 text-white border border-purple-400/50 shadow-[0_0_20px_rgba(168,85,247,0.3)]"
-                        : "glass border border-white/10 text-white/60 hover:text-white hover:border-white/20"
-                      }`}
-                  >
-                    {amount} ₽
-                  </button>
-                ))}
-              </div>
+              <a
+                href="https://www.donationalerts.com/r/artem_maybach"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full py-4 rounded-xl font-display font-bold text-white text-base tracking-wider text-center
+                  bg-gradient-to-r from-purple-600 via-purple-500 to-pink-500
+                  hover:from-purple-500 hover:to-pink-400 transition-all duration-300
+                  hover:scale-[1.02] hover:shadow-[0_0_40px_rgba(168,85,247,0.4)] block"
+              >
+                ЗАДОНАТИТЬ НА DONATIONALERTS 💜
+              </a>
 
-              <div className="mb-5">
-                <input
-                  type="number"
-                  value={donateAmount}
-                  onChange={e => setDonateAmount(Number(e.target.value))}
-                  className="w-full glass border border-white/10 rounded-xl px-4 py-3 text-white font-display text-lg
-                    focus:outline-none focus:border-purple-500/50 transition-colors bg-transparent placeholder-white/20"
-                  placeholder="Своя сумма..."
-                />
-              </div>
-
-              <div className="mb-6">
-                <textarea
-                  value={donateMsg}
-                  onChange={e => setDonateMsg(e.target.value)}
-                  className="w-full glass border border-white/10 rounded-xl px-4 py-3 text-white text-sm
-                    focus:outline-none focus:border-purple-500/50 transition-colors bg-transparent placeholder-white/30 resize-none"
-                  rows={3}
-                  placeholder="Сообщение для стримера..."
-                />
-              </div>
-
-              <button className="w-full py-4 rounded-xl font-display font-bold text-white text-base tracking-wider
-                bg-gradient-to-r from-purple-600 via-purple-500 to-pink-500
-                hover:from-purple-500 hover:to-pink-400 transition-all duration-300
-                hover:scale-[1.02] hover:shadow-[0_0_40px_rgba(168,85,247,0.4)]">
-                ОТПРАВИТЬ {donateAmount} ₽ 💜
-              </button>
-
-              <p className="text-center text-white/25 text-xs mt-4">
-                Платёжная форма будет подключена по вашему запросу
+              <p className="text-white/25 text-xs mt-5">
+                Переход на donationalerts.com/r/artem_maybach
               </p>
             </div>
           </div>
