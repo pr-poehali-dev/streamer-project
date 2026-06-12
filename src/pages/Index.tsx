@@ -240,10 +240,10 @@ export default function Index() {
               <p className="text-xs font-display tracking-[0.3em] text-[var(--neon-purple)] mb-4 uppercase">О стримере</p>
               <h2 className="font-display text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
                 Стример<br />
-                <span className="gradient-text">с 2013 года</span>
+                <span className="gradient-text">с 2023 года</span>
               </h2>
               <p className="text-white/60 leading-relaxed mb-6">
-                Привет! Стримлю уже больше 10 лет. Начинал как простой игрок, а сейчас собрал сообщество настоящих ценителей игр. Каждый стрим — это не просто геймплей, это атмосфера, живое общение и отличное настроение.
+                Привет! Стримлю с 2023 года. Начинал как простой игрок, а сейчас собрал сообщество настоящих ценителей игр. Каждый стрим — это не просто геймплей, это атмосфера, живое общение и отличное настроение.
               </p>
               <p className="text-white/60 leading-relaxed mb-8">
                 В эфире — <span className="text-[var(--neon-cyan)] font-semibold">Euro Truck Simulator 2, AMAZING RP, Counter-Strike 2</span> и много живого общения с подписчиками. Заходи, будем вместе!
@@ -251,7 +251,7 @@ export default function Index() {
 
               <div className="grid grid-cols-3 gap-4">
                 {[
-                  { value: "10+", label: "лет стримов" },
+                  { value: "2023", label: "начало стримов" },
                   { value: "50К+", label: "подписчиков" },
                   { value: "6 дней", label: "в неделю" },
                 ].map(stat => (
@@ -263,20 +263,23 @@ export default function Index() {
               </div>
             </div>
 
-            <div className="relative">
-              <div className="aspect-square rounded-2xl glass neon-border overflow-hidden flex items-center justify-center relative">
-                <div className="text-center z-10">
-                  <div className="text-8xl mb-4">🎮</div>
-                  <p className="text-white/30 text-sm">Фото стримера</p>
+            <div className="grid grid-cols-1 gap-4">
+              {[
+                { icon: "Tv", title: "Прямые эфиры", desc: "6 дней в неделю в 21:00" },
+                { icon: "Users", title: "Живое общение", desc: "Отвечаю на все сообщения в чате" },
+                { icon: "Gamepad2", title: "Разные игры", desc: "ETS2, AMAZING RP, CS2 и многое другое" },
+                { icon: "Heart", title: "Сообщество", desc: "Тёплая атмосфера для каждого" },
+              ].map(f => (
+                <div key={f.title} className="flex items-center gap-4 glass border border-white/5 rounded-xl px-5 py-4">
+                  <div className="w-10 h-10 rounded-lg bg-purple-500/15 flex items-center justify-center flex-shrink-0">
+                    <Icon name={f.icon} size={18} className="text-[var(--neon-purple)]" fallback="Star" />
+                  </div>
+                  <div>
+                    <p className="font-display font-semibold text-white text-sm">{f.title}</p>
+                    <p className="text-white/40 text-xs mt-0.5">{f.desc}</p>
+                  </div>
                 </div>
-                <div className="absolute inset-0 bg-gradient-to-tr from-purple-900/30 to-transparent" />
-              </div>
-              <div className="absolute -bottom-4 -right-4 glass neon-border rounded-xl px-5 py-3 animate-float">
-                <div className="flex items-center gap-2">
-                  <span className="w-2.5 h-2.5 bg-green-400 rounded-full animate-pulse" />
-                  <span className="font-display text-sm font-semibold text-white">В эфире!</span>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         </Section>
