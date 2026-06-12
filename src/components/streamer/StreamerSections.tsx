@@ -1,6 +1,14 @@
 import { useEffect, useRef, useState } from "react";
 import Icon from "@/components/ui/icon";
-import { SCHEDULE, DONORS, GALLERY, SOCIALS } from "./data";
+import { SCHEDULE, GALLERY, SOCIALS } from "./data";
+
+const GET_DONORS_URL = "https://functions.poehali.dev/e6f694ae-b3e5-4143-8af8-ba930b20931e";
+
+interface Donor {
+  name: string;
+  amount: number;
+  avatar: string;
+}
 
 function useIntersect(ref: React.RefObject<Element>, threshold = 0.12) {
   const [visible, setVisible] = useState(false);
@@ -34,6 +42,19 @@ interface StreamerSectionsProps {
 }
 
 export default function StreamerSections({ scrollTo }: StreamerSectionsProps) {
+  const [donors, setDonors] = useState<Donor[]>([]);
+  const [donorsLoading, setDonorsLoading] = useState(true);
+
+  useEffect(() => {
+    fetch(GET_DONORS_URL)
+      .then(r => r.json())
+      .then(data => {
+        const parsed = typeof data === "string" ? JSON.parse(data) : data;
+        setDonors(parsed.donors || []);
+      })
+      .finally(() => setDonorsLoading(false));
+  }, []);
+
   return (
     <>
       <div className="max-w-7xl mx-auto px-4 md:px-8 pb-24 space-y-32">
@@ -234,45 +255,58 @@ export default function StreamerSections({ scrollTo }: StreamerSectionsProps) {
             Топ <span className="gradient-text">донатеров</span>
           </h2>
 
-          <div className="space-y-3">
-            {DONORS.map((donor, i) => (
-              <div
-                key={i}
-                className={`flex items-center gap-4 glass rounded-xl px-6 py-4 border transition-all duration-300
-                  ${i === 0 ? "border-yellow-500/40 bg-yellow-500/5" : i === 1 ? "border-gray-400/20" : i === 2 ? "border-orange-500/25" : "border-white/5 hover:border-white/10"}`}
-              >
-                <div className={`w-10 h-10 rounded-lg flex items-center justify-center font-display font-bold text-lg flex-shrink-0
-                  ${i === 0 ? "bg-yellow-500/20 text-yellow-400" : i === 1 ? "bg-gray-500/20 text-gray-300" : i === 2 ? "bg-orange-500/20 text-orange-400" : "bg-white/5 text-white/30"}`}>
-                  {i + 1}
-                </div>
-
-                <div className="text-2xl">{donor.avatar}</div>
-
-                <div className="flex-1">
-                  <p className={`font-display font-semibold tracking-wide
-                    ${i === 0 ? "text-yellow-300" : i === 1 ? "text-gray-200" : i === 2 ? "text-orange-300" : "text-white/70"}`}>
-                    {donor.name}
-                  </p>
-                </div>
-
-                <div className="hidden sm:flex flex-1 items-center gap-3">
-                  <div className="flex-1 h-1 bg-white/5 rounded-full overflow-hidden">
-                    <div
-                      className={`h-full rounded-full ${i === 0 ? "bg-gradient-to-r from-yellow-500 to-yellow-300" : "bg-gradient-to-r from-purple-600 to-purple-400"}`}
-                      style={{ width: `${(donor.amount / DONORS[0].amount) * 100}%` }}
-                    />
+          {donorsLoading ? (
+            <div className="space-y-3">
+              {[...Array(5)].map((_, i) => (
+                <div key={i} className="glass rounded-xl px-6 py-4 border border-white/5 h-16 animate-pulse" />
+              ))}
+            </div>
+          ) : donors.length === 0 ? (
+            <div className="glass neon-border rounded-2xl p-10 text-center text-white/30">
+              <div className="text-4xl mb-3">💜</div>
+              <p className="font-display">Пока нет донатеров — будь первым!</p>
+            </div>
+          ) : (
+            <div className="space-y-3">
+              {donors.map((donor, i) => (
+                <div
+                  key={i}
+                  className={`flex items-center gap-4 glass rounded-xl px-6 py-4 border transition-all duration-300
+                    ${i === 0 ? "border-yellow-500/40 bg-yellow-500/5" : i === 1 ? "border-gray-400/20" : i === 2 ? "border-orange-500/25" : "border-white/5 hover:border-white/10"}`}
+                >
+                  <div className={`w-10 h-10 rounded-lg flex items-center justify-center font-display font-bold text-lg flex-shrink-0
+                    ${i === 0 ? "bg-yellow-500/20 text-yellow-400" : i === 1 ? "bg-gray-500/20 text-gray-300" : i === 2 ? "bg-orange-500/20 text-orange-400" : "bg-white/5 text-white/30"}`}>
+                    {i + 1}
                   </div>
-                </div>
 
-                <div className={`font-display font-bold text-lg tracking-wide
-                  ${i === 0 ? "text-yellow-400" : i === 1 ? "text-gray-300" : i === 2 ? "text-orange-400" : "text-white/50"}`}>
-                  {donor.amount.toLocaleString()} ₽
-                </div>
+                  <div className="text-2xl">{donor.avatar}</div>
 
-                {i === 0 && <Icon name="Crown" size={18} className="text-yellow-400 flex-shrink-0" />}
-              </div>
-            ))}
-          </div>
+                  <div className="flex-1">
+                    <p className={`font-display font-semibold tracking-wide
+                      ${i === 0 ? "text-yellow-300" : i === 1 ? "text-gray-200" : i === 2 ? "text-orange-300" : "text-white/70"}`}>
+                      {donor.name}
+                    </p>
+                  </div>
+
+                  <div className="hidden sm:flex flex-1 items-center gap-3">
+                    <div className="flex-1 h-1 bg-white/5 rounded-full overflow-hidden">
+                      <div
+                        className={`h-full rounded-full ${i === 0 ? "bg-gradient-to-r from-yellow-500 to-yellow-300" : "bg-gradient-to-r from-purple-600 to-purple-400"}`}
+                        style={{ width: `${(donor.amount / donors[0].amount) * 100}%` }}
+                      />
+                    </div>
+                  </div>
+
+                  <div className={`font-display font-bold text-lg tracking-wide
+                    ${i === 0 ? "text-yellow-400" : i === 1 ? "text-gray-300" : i === 2 ? "text-orange-400" : "text-white/50"}`}>
+                    {donor.amount.toLocaleString()} ₽
+                  </div>
+
+                  {i === 0 && <Icon name="Crown" size={18} className="text-yellow-400 flex-shrink-0" />}
+                </div>
+              ))}
+            </div>
+          )}
 
           <div className="mt-8 glass neon-border rounded-2xl px-6 py-5 flex flex-col sm:flex-row items-center justify-between gap-4">
             <div>

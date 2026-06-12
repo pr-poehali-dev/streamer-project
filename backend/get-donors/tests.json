@@ -1,0 +1,12 @@
+{
+  "tests": [
+    {
+      "name": "Get donors list",
+      "method": "GET",
+      "path": "/",
+      "expectedStatus": 200,
+      "expectedBody": { "donors": [] },
+      "bodyMatcher": "partial"
+    }
+  ]
+}
