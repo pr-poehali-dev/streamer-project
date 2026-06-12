@@ -37,7 +37,7 @@ const SOCIALS = [
   { name: "Twitch", icon: "Tv", url: "#", color: "#9147ff", label: "Смотреть стримы" },
   { name: "YouTube", icon: "Youtube", url: "#", color: "#ff0000", label: "Записи и хайлайты" },
   { name: "VK", icon: "MessageCircle", url: "#", color: "#0077ff", label: "Новости и анонсы" },
-  { name: "Telegram", icon: "Send", url: "#", color: "#22d3ee", label: "Чат и обновления" },
+  { name: "Telegram", icon: "Send", url: "https://t.me/+moGLmdVXE185NzRi", color: "#22d3ee", label: "Чат и обновления" },
 ];
 
 const NAV_ITEMS = [
