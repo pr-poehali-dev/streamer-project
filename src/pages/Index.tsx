@@ -113,7 +113,7 @@ export default function Index() {
             onClick={() => scrollTo("hero")}
             className="font-display text-xl font-bold tracking-widest gradient-text hover:opacity-80 transition-opacity"
           >
-            СТРИМЕР
+            ARTEM MAYBACH
           </button>
 
           <div className="hidden md:flex items-center gap-1">
@@ -186,7 +186,7 @@ export default function Index() {
           </div>
 
           <h1 className="font-display text-6xl md:text-8xl lg:text-9xl font-bold tracking-tight mb-4 animate-fade-in-up">
-            <span className="gradient-text animate-neon-flicker">СТРИМЕР</span>
+            <span className="gradient-text animate-neon-flicker">ARTEM MAYBACH</span>
           </h1>
 
           <p className="text-lg md:text-xl text-white/50 tracking-widest font-light mb-10 animate-fade-in-up delay-200">
@@ -233,7 +233,7 @@ export default function Index() {
 
       <div className="max-w-7xl mx-auto px-4 md:px-8 pb-24 space-y-32">
 
-        {/* О СТРИМЕРЕ */}
+        {/* О ARTEM MAYBACHЕ */}
         <Section id="about" className="pt-16">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
@@ -514,7 +514,7 @@ export default function Index() {
           </div>
 
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-6 border-t border-white/5">
-            <p className="font-display text-xl font-bold gradient-text tracking-widest">СТРИМЕР</p>
+            <p className="font-display text-xl font-bold gradient-text tracking-widest">ARTEM MAYBACH</p>
             <p className="text-white/25 text-sm">© 2024 · Dota 2 Live Streaming</p>
             <button
               onClick={() => scrollTo("hero")}
